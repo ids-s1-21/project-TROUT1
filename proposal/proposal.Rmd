@@ -26,7 +26,10 @@ From the Metadata on the dataset's kaggle page the data was obtained through Web
 
 ## 2. Data
 
-
+```{r load-dataset, message = FALSE}
+London <- read_csv("../data/London.csv")
+glimpse(London)
+```
 
 ## 3. Data analysis plan
 
