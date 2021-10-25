@@ -18,3 +18,5 @@ using the following format.
 - `Location`: district of the property (categorical)
 - `City/County`: city/county of the property (categorical)
 - `Postal Code`: postcode of the property (character)
+
+This data file has 3480 rows and 11 columns
