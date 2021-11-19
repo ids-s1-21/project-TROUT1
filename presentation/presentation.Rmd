@@ -1,5 +1,5 @@
 ---
-title: "Presentation title"
+title: "Does the number of bathrooms affects price of houses in London?"
 subtitle: <font size='6'>Presentation subtitle (if any)</font>
 author: <font size='8'>Team name <br> Names of team members</font>
 institute: <font size='10'>University of Edinburgh</font>

@@ -1,0 +1,24 @@
+---
+title: "Project Plan"
+output: html_notebook
+---
+
+Get the data of London house pricing
+
+Filter all houses that are not in London.
+
+Group by postcode.(Such as: W1, W2, W3......)
+
+
+```{r}
+London <- read_csv("../data/London.csv")
+```
+
+```{r}
+London%>%
+  filter(`City/County` == "London")%>%
+  mutate(
+    region =
+  )%>%
+  view()
+```
