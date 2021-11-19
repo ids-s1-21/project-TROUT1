@@ -48,6 +48,7 @@ pound_in_M <- label_dollar(
   decimal.mark = "."
 )
 London%>%
+  filter(`House Type` %in% c("House","Penthouse","Flat / Apartment","New development"))%>%
   mutate( 
     price_in_M = Price/1000000
   )%>%  #We reduce the number of price into M(e.g.:£1000000->£1M)
@@ -60,11 +61,12 @@ London%>%
     subtitle = "For properties in London",
     x = "Number of bathrooms",
     y = "Price of property"
-  )
+  )+
+  facet_wrap(~ `House Type`)
 ```
 
 The answer seems to be "Yes", since the regression line shows a slope. But there are still a lot of problems with this plot:
-1. The slope doesn't seem to fit the data welll
+1. The slope doesn't seem to fit the data well
 2. There are too many confounding variables, this plot could be showing area per sq foot increases the price, and number of bathrooms is correlated with a greater area per sq foot. To understand the influence the number of bathrooms has on price we will have to investigate further.
 
 We will solve these problems in the actual project.
