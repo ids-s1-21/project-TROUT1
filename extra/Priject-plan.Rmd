@@ -15,10 +15,12 @@ London <- read_csv("../data/London.csv")
 ```
 
 ```{r}
-London%>%
+library(tidyverse)
+library(tidyr)
+```
+
+```{r}
+London <- London%>%
   filter(`City/County` == "London")%>%
-  mutate(
-    region =
-  )%>%
-  view()
+  separate(`Postal Code` , c("region","subregion"), " ")
 ```
