@@ -113,11 +113,17 @@ fit_central_fixed <- lm(
   )
 tidy(fit_central_fixed) 
 ```
-```{r}
-London%>%
-  filter(large_region == "Outer")%>%
-  ggplot(aes(count = region))+
-  geom_histogram()
-```
 
+```{r}
+London %>%
+  group_by(region) %>%
+  summarise(
+    price_per_sq_ft = median(price_per_sq_ft),
+    large_region = large_region
+  ) %>%
+  ggplot(aes(x = price_per_sq_ft, fill = large_region)) +
+  geom_histogram(binwidth = 40) +
+  scale_color_manual(values = c("yellow","#20C5D4","#00FF67","#290916"))
+  
+```
 
