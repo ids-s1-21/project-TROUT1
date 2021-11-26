@@ -209,6 +209,11 @@ London &lt;- London%&gt;%
     )
   )
 
+London &lt;- London%&gt;%
+  mutate(
+    price_per_sq_ft = Price/`Area in sq ft`
+  )
+
 #---------------------- From now this is my code
 
 #I want to remove columns 6,7,8
