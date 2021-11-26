@@ -8,6 +8,14 @@ In stage 2, I am going to make the faceted plot more clear than stage 1.
 
 I will divide the region in London into 4 big regions: from city center to further places, see the picture below.
 
+Red represents group "Central"
+
+Blue represents group "Middle"
+
+Red represents group "Outer"
+
+Unmarked region represents group "Further outer"
+
 ![Original picture from https://www.doogal.co.uk/london_postcodes.php, accessed on nov.25th 2021.](../extra/London_Region_divide.png)
 
 
@@ -57,9 +65,9 @@ London <- London%>%
   mutate(
     large_region = case_when(
       region %in% central ~ "central",
-      region %in% subcentral ~ "subcentral",
-      region %in% suburban ~ "suburban",
-      !(region %in% central | region %in% subcentral | region %in% suburban) ~ "other"
+      region %in% subcentral ~ "Middle",
+      region %in% suburban ~ "Outer",
+      !(region %in% central | region %in% subcentral | region %in% suburban) ~ "Further Outer"
     )
   )
 ```
