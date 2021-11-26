@@ -24,6 +24,7 @@ library(tidyverse)
 library(tidyr)
 library(purrr)
 library(scales)
+library(broom)
 ```
 
 
@@ -86,8 +87,37 @@ London%>%
   mutate(
     Price_in_M = Price/1000000
   )%>%
-  ggplot(aes(x = `Area in sq ft`, y = Price_in_M))+
+  ggplot(aes(x = `Area in sq ft`, y = Price_in_M, color = region))+
   geom_point()+
   facet_wrap(~ large_region)+
-  scale_y_continuous(labels = pound_in_M)
+  scale_y_continuous(labels = pound_in_M)+
+  geom_smooth(method = "lm", se = FALSE)
 ```
+
+
+```{r linear regression data}
+London <- London%>%
+  mutate(
+    price_per_sq_ft = Price/`Area in sq ft`
+  )
+
+fit_central <- lm(
+  formula = price_per_sq_ft ~ large_region,
+  data = London
+  )
+tidy(fit_central) 
+
+fit_central_fixed <- lm(
+  formula = price_per_sq_ft ~ large_region,
+  data = London%>%filter(`Area in sq ft` < 14000)
+  )
+tidy(fit_central_fixed) 
+```
+```{r}
+London%>%
+  filter(large_region == "Outer")%>%
+  ggplot(aes(count = region))+
+  geom_histogram()
+```
+
+

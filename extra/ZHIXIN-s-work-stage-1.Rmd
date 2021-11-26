@@ -1,0 +1,50 @@
+---
+title: "ZHIXIN's work-stage 1"
+output: html_document
+---
+
+```{r message=FALSE}
+library(tidyverse)
+library(tidyr)
+library(purrr)
+```
+
+
+```{r message=FALSE}
+London <- read_csv("../data/London.csv")
+```
+
+
+```{r warning=FALSE}
+# This function is intended to remove any letter after the numbers in London$region. i.e:W1A -> W1
+# This code chunk may takes longer than others. Still finding more efficient ways to do it
+posremo <- function(postcode) {
+  temp = 0
+  for(index in c( 1 : (str_length(postcode)))){
+    i = substr(postcode, index, index)
+    if(!is.na(as.numeric(i))){
+      temp = temp+1
+    }
+    if(is.na(as.numeric(i)) & temp > 0){
+      postcode = str_remove(postcode, i)
+    }
+  }
+  return(postcode)
+}
+
+London <- London%>%
+  filter(`City/County` == "London")%>%
+  separate(`Postal Code` , c("region","subregion"), " ")%>%
+  mutate(
+    region = map_chr(region, posremo)
+  )
+```
+
+```{r}
+# This code chunk may takes longer than others. Still finding more efficient ways to do it
+London%>%
+  ggplot(aes(x = `Area in sq ft`, y = Price))+
+  geom_point()+
+  facet_wrap(~ region)
+```
+Quite embarrased since the faceted wrap is not readable for there are too many regions, but we will fix this problem by deviding them to larger regions( such as W1-W3 and E1-E3 as one group)
