@@ -126,4 +126,13 @@ London %>%
   scale_color_manual(values = c("yellow","#20C5D4","#00FF67","#290916"))
   
 ```
+```{r}
+London %>%
+  group_by(region) %>%
+  summarise(`Area in sq ft` = mean(`Area in sq ft`),
+    Price = mean(Price) , large_region = large_region) %>%
+ ggplot() +
+  geom_point(aes(x = `Area in sq ft`  , y = Price , color = large_region))
+  
+```
 

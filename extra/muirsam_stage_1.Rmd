@@ -73,9 +73,26 @@ write_csv(Fixed_London, path = "../data/Fixed-London.csv")
 ```{r message=FALSE}
 London %>%
   ggplot(aes(x = `House Type`)) +
-  geom_bar()
+  geom_bar() 
 ```
-We can see there are considerably more records of Flats, Houses, New Developments and Penthouses. We don't have enough information on Duplex, Mews or Studios to draw any meaningful conclusions so these records should probably be removed. 
+We can see there are considerably more records of Flats, Houses, New Developments and Penthouses. We don't have enough information on Duplex, Mews or Studios to draw any meaningful conclusions so these records should probably be removed.
+
+
+```{r message=FALSE}
+#Removing duplexes, Mews and Studios
+London %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House" , "New development" , "Penthouse")) %>%
+  ggplot(aes(x = `House Type`)) +
+  geom_bar() 
+```
+```{r message=FALSE}
+#Removing duplexes, Mews and Studios and faceting by large region to compare house types (trying to explain how in ZHIXINs plot the further outer region was more expensive then the outer region on average)
+London %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House" , "New development" , "Penthouse")) %>%
+  ggplot(aes(x = `House Type`)) +
+  geom_bar() +
+  facet_wrap(~large_region)
+```
 
 ```{r message=FALSE}
 London %>%
