@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <meta name="author" content="Team name   Names of team members" />
-  <meta name="dcterms.date" content="2021-11-19" />
-  <title>Presentation title</title>
+  <meta name="author" content="TROUT1   Zhixin &amp; Sam &amp; Josh" />
+  <meta name="dcterms.date" content="2021-11-29" />
+  <title>Explore How Multiple Factors Affect the Housing Price in London</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -516,20 +516,66 @@ document.getElementsByTagName('head')[0].appendChild(style);
     <div class="slides">
 
 <section>
-    <h1 class="title">Presentation title</h1>
-  <h1 class="subtitle"><font size='6'>Presentation subtitle (if any)</font></h1>
-    <h2 class="author"><font size='8'>Team name <br> Names of team members</font></h2>
-    <h3 class="date"><font size = '6'>2021-11-19</font></h3>
+    <h1 class="title">Explore How Multiple Factors Affect the Housing Price in London</h1>
+  <h1 class="subtitle"><font size='6'></font></h1>
+    <h2 class="author"><font size='8'>TROUT1 <br> Zhixin &amp; Sam &amp; Josh</font></h2>
+    <h3 class="date"><font size = '6'>2021-11-29</font></h3>
 </section>
 
-<section id="a-statement-of-the-overall-goal-research-question" class="slide level2" data-background-image="img/confetti.jpg">
-<h2 data-background-image="img/confetti.jpg">A statement of the overall goal / research question</h2>
+<section id="our-goal-is-to-find-out-what-and-how-are-region-house-type-and-total-aera-affects-housing-price-in-london" class="slide level2" data-background-image="img/confetti.jpg">
+<h2 data-background-image="img/confetti.jpg">Our goal is to find out what and how are region, house type, and total aera affects housing price in London</h2>
 </section>
-<section id="section-title" class="title-slide slide level1">
-<h1>Section title</h1>
-
+<section>
+<section id="about-the-data" class="title-slide slide level1">
+<h1>About the Data</h1>
+<ul>
+<li><p>We have got over 3400 housing price data for houses in all regions in greater London. However, since the majority of the houses are located in London, we will only consider houses in London, but not greater London.<sup>1</sup></p></li>
+<li><p>We cleaned the data by:</p></li>
+</ul>
+<ol type="1">
+<li>Filter out all houses that are not in London.</li>
+<li>Remove column “No. of bathrooms” and “No. of receptions.”<sup>2</sup></li>
+<li>Extract the Outward Code in the “Postal Code” variable.<sup>3</sup></li>
+<li>Add variable: “price_per_sq_ft” = “Price”/“Area in sq ft”</li>
+<li>Divide them into 4 large regions.<sup>4</sup></li>
+</ol>
 </section>
-
+<section id="discription-citation" class="slide level2">
+<h2>Discription &amp; Citation</h2>
+<ul>
+<li>All code for tidying the data can be found in r script “presentation/presentation_files/Support-files/Tidy Up Data.R”</li>
+</ul>
+<h1 style="
+font-size: 16pt; 
+width: 100%; 
+text-align: center
+;">
+<ol type="1">
+<li>Kulkarni, A., 2021. Housing Prices in London. [online] Kaggle.com. <a href="https://www.kaggle.com/arnavkulkarni/housing-prices-in-london" class="uri">https://www.kaggle.com/arnavkulkarni/housing-prices-in-london</a> [Accessed 19 November 2021].</li>
+<li>Because of the flaw of the original data, the variable “No. of bedrooms”, “No. of bathrooms”, and "No. of receptions are all the same for each observation. We checked some famous houses and figured out that this may represents the number of bedrooms</li>
+<li>Outward Code is always the first two to four characters in postal code. i.e: SW9 9BT has outward code of SW9. This always indicates which region does the house locate.</li>
+<li>The standard of dividing regions are shown at next page.</li>
+</ol>
+</h1>
+</section></section>
+<section>
+<section id="the-closer-the-better" class="title-slide slide level1">
+<h1>The closer, the better?</h1>
+<ul>
+<li><p>In the beginning of the analysis, we will start identify how the location of the house affects the price. I will divide the region in London into 4 big regions: from city center to further places, see the image below.</p></li>
+<li><p>Different marked colour represents different regions:</p></li>
+</ul>
+<ol type="1">
+<li>Red represents group “Central”</li>
+<li>Blue represents group “Middle”</li>
+<li>Red represents group “Outer”</li>
+<li>Unmarked region represents group “Further outer”</li>
+</ol>
+</section>
+<section id="deviding-rule-image" class="slide level2">
+<h2>Deviding Rule Image</h2>
+<p><img src="presentation_files/Support-files/London_Region_divide.png"  height="500" width="500"></p>
+</section></section>
 <section id="hello-world" class="title-slide slide level1">
 <h1>Hello World</h1>
 <ul>

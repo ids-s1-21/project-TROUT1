@@ -1,7 +1,7 @@
 ---
-title: "Does the number of bathrooms affects price of houses in London?"
-subtitle: <font size='6'>Presentation subtitle (if any)</font>
-author: <font size='8'>Team name <br> Names of team members</font>
+title: "Explore How Multiple Factors Affect the Housing Price in London"
+subtitle: <font size='6'></font>
+author: <font size='8'>TROUT1 <br> Zhixin & Sam & Josh</font>
 institute: <font size='10'>University of Edinburgh</font>
 date: <font size = '6'>`r Sys.Date()`</font>
 output:
@@ -25,12 +25,55 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 ```
 
 ```{r load-data, include=FALSE}
-# Load your data here
+London <- read_csv("../data/Fixed-London.csv")
 ```
 
-## A statement of the overall goal / research question {data-background-image="img/confetti.jpg"}
+## Our goal is to find out what and how are region, house type, and total aera affects housing price in London {data-background-image="img/confetti.jpg"}
 
-# Section title
+# About the Data
+
+- We have got over 3400 housing price data for houses in all regions in greater London. However, since the majority of the houses are located in London, we will only consider houses in London, but not greater London.^1^
+
+- We cleaned the data by:
+1. Filter out all houses that are not in London.
+2. Remove column "No. of bathrooms" and "No. of receptions."^2^
+3. Extract the Outward Code in the "Postal Code" variable.^3^
+4. Add variable: "price_per_sq_ft" = "Price"/"Area in sq ft"
+5. Divide them into 4 large regions.^4^
+
+## Discription & Citation
+
+- All code for tidying the data can be found in r script "presentation/presentation_files/Support-files/Tidy Up Data.R" 
+
+<h1 style="
+font-size: 16pt; 
+width: 100%; 
+text-align: center
+;">
+
+1. Kulkarni, A., 2021. Housing Prices in London. [online] Kaggle.com. <https://www.kaggle.com/arnavkulkarni/housing-prices-in-london> [Accessed 19 November 2021].
+2. Because of the flaw of the original data, the variable "No. of bedrooms", "No. of bathrooms", and "No. of receptions are all the same for each observation. We checked some famous houses and figured out that this may represents the number of bedrooms
+3. Outward Code is always the first two to four characters in postal code. i.e: SW9 9BT has outward code of SW9. This always indicates which region does the house locate.
+4. The standard of dividing regions are shown at next page.
+
+</h1>
+
+# The closer, the better?
+
+- In the beginning of the analysis, we will start identify how the location of the house affects the price.
+I will divide the region in London into 4 big regions: from city center to further places, see the image below.
+
+- Different marked colour represents different regions:
+1. Red represents group "Central"
+2. Blue represents group "Middle"
+3. Red represents group "Outer"
+4. Unmarked region represents group "Further outer"
+
+
+## Deviding Rule Image
+
+<img src="presentation_files/Support-files/London_Region_divide.png"  height="500" width="500">
+
 
 # Hello World
 
