@@ -17,6 +17,8 @@ library(tidymodels)
 library(palmerpenguins)
 library(knitr)
 library(revealjs)
+library(tidyr)
+library(purrr)
 ```
 
 ```{r setup, include=FALSE}
@@ -37,7 +39,7 @@ London <- read_csv("../data/Fixed-London.csv")
 - We cleaned the data by:
 1. Filter out all houses that are not in London.
 2. Remove column "No. of bathrooms" and "No. of receptions."^2^
-3. Extract the Outward Code in the "Postal Code" variable.^3^
+3. Extract the District Code in the "Postal Code" variable.^3^
 4. Add variable: "price_per_sq_ft" = "Price"/"Area in sq ft"
 5. Divide them into 4 large regions.^4^
 
@@ -53,27 +55,67 @@ text-align: center
 
 1. Kulkarni, A., 2021. Housing Prices in London. [online] Kaggle.com. <https://www.kaggle.com/arnavkulkarni/housing-prices-in-london> [Accessed 19 November 2021].
 2. Because of the flaw of the original data, the variable "No. of bedrooms", "No. of bathrooms", and "No. of receptions are all the same for each observation. We checked some famous houses and figured out that this may represents the number of bedrooms
-3. Outward Code is always the first two to four characters in postal code. i.e: SW9 9BT has outward code of SW9. This always indicates which region does the house locate.
+3. District Code is always the first two to four characters in postal code. i.e: SW9X 9BT has District Code of SW9. This always indicates which region does the house locate.
 4. The standard of dividing regions are shown at next page.
 
 </h1>
 
-# The closer, the better?
+# The Closer, the Better?
 
 - In the beginning of the analysis, we will start identify how the location of the house affects the price.
 I will divide the region in London into 4 big regions: from city center to further places, see the image below.
 
 - Different marked colour represents different regions:
-1. Red represents group "Central"
-2. Blue represents group "Middle"
-3. Red represents group "Outer"
-4. Unmarked region represents group "Further outer"
+1. Red represents group "A-Central"
+2. Blue represents group "B-Middle"
+3. Red represents group "C-Outer"
+4. Unmarked region represents group "D-Further outer"
 
 
 ## Deviding Rule Image
 
 <img src="presentation_files/Support-files/London_Region_divide.png"  height="500" width="500">
 
+- What we expected is that: The closer to the city center, the more expensive the house is. That is, higher price per sq ft.
+
+## General Glimpse
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+pound <- label_dollar(
+  prefix = "£", 
+  suffix = "",
+  big.mark = ".",
+  decimal.mark = ","
+)
+London%>%
+  ggplot(aes(price_per_sq_ft))+
+  geom_histogram(bandwidth = 20)+
+  facet_wrap(~ large_region)+
+  scale_x_continuous(labels = pound)+
+  labs(
+    title = "Histogram for Price per sq ft in London",
+    subtitle = "Divided by large regions",
+    x = "Price per sq ft"
+  )
+```
+
+- There is no obvious difference in the histogram
+
+## Data&Interpretation
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+London%>%
+  group_by(large_region)%>%
+  summarise(
+    `Mean Price` = mean(price_per_sq_ft, na.rm = TRUE),
+    `1/4 Quantile` = quantile(price_per_sq_ft, 0.25),
+    `Median Price` = median(price_per_sq_ft, na.rm = TRUE),
+    `3/4 Quantile` = quantile(price_per_sq_ft, 0.75),
+  )%>%
+  arrange(large_region)
+
+```
+
+Surprisingly, we found that the housing price per sq ft is not always decreasing when the region we are looking at is further and further from the city center. When we encounter "D-Further Outer" region, the price increase a little. This happens to mean, median, and quarter quantiles, which means the housing price per sq ft in "Further Outer" region is generally higher than the "Outer" region.
 
 # Hello World
 
