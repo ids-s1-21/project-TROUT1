@@ -89,7 +89,7 @@ pound <- label_dollar(
 London%>%
   ggplot(aes(price_per_sq_ft))+
   geom_histogram(bandwidth = 20)+
-  facet_wrap(~ large_region)+
+  facet_wrap(~ large_region, ncol = 1)+
   scale_x_continuous(labels = pound)+
   labs(
     title = "Histogram for Price per sq ft in London",
@@ -98,7 +98,6 @@ London%>%
   )
 ```
 
-- There is no obvious difference in the histogram
 
 ## Data&Interpretation
 

@@ -46,10 +46,10 @@ suburban <- c("N3","N2","N10","N22","N8","N17","N15","E17","E10","E11","E20","E1
 London <- London%>%
   mutate(
     large_region = case_when(
-      region %in% central ~ "central",
-      region %in% subcentral ~ "Middle",
-      region %in% suburban ~ "Outer",
-      !(region %in% central | region %in% subcentral | region %in% suburban) ~ "Further Outer"
+      region %in% central ~ "A-Central",
+      region %in% subcentral ~ "B-Middle",
+      region %in% suburban ~ "C-Outer",
+      !(region %in% central | region %in% subcentral | region %in% suburban) ~ "D-Further Outer"
     )
   )
 
