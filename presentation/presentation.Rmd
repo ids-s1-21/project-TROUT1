@@ -1,5 +1,5 @@
 ---
-title: "Explore How Multiple Factors Affect the Housing Price in London"
+title: "How Multiple Factors Affect the Housing Price in London"
 subtitle: <font size='6'></font>
 author: <font size='8'>TROUT1 <br> Zhixin & Sam & Josh</font>
 institute: <font size='10'>University of Edinburgh</font>
@@ -28,20 +28,57 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 
 ```{r load-data, include=FALSE}
 London <- read_csv("../data/Fixed-London.csv")
+Original_London <- read.csv("../data/London.csv")
+#{data-background-image="img/confetti.jpg"}
 ```
 
+<<<<<<< HEAD
 ## Our goal is to find out what and how are region, house type, and total aera affects housing price in London 
+=======
+# Project Goal
+In this project we will explore how factors such as: Location, House type, Area and Number of Bedrooms influence the price of property in London.
+The goal of this project is to use this information to identify which factors have the greatest influence on the price of housing. 
+>>>>>>> f077333c209ea6c9c95f4fb38857937adebd97d6
 
 # About the Data
 
-- We have got over 3400 housing price data for houses in all regions in greater London. However, since the majority of the houses are located in London, we will only consider houses in London, but not greater London.^1^
+<font size = '6'>The dataset we used was obtained from Kaggle. According to the uploader the information was obtained via web scraping. Below is what the original data looks like.</font>
 
-- We cleaned the data by:
-1. Filter out all houses that are not in London.
-2. Remove column "No. of bathrooms" and "No. of receptions."^2^
-3. Extract the District Code in the "Postal Code" variable.^3^
-4. Add variable: "price_per_sq_ft" = "Price"/"Area in sq ft"
-5. Divide them into 4 large regions.^4^
+```{r, echo=FALSE}
+glimpse(Original_London)
+```
+
+
+## Problems
+
+<font size = '6'>There are some large problems with the dataset we need to fix before we begin our analysis.</font>
+
+```{r, echo=FALSE}
+glimpse(select(Original_London, c(6,7,8)))
+```
+
+<font size = '6'>As you can see, 'No. of Bedrooms', 'No. of Bathrooms' and 'No. of Receptions' are the same as each other in each record. By looking up some of the listings we determined that this number represents the 'No. of Bedrooms'</font> 
+
+## Problems
+
+```{r, echo=FALSE}
+glimpse(select(Original_London, c(10)))
+
+nrow(filter(Original_London, Location == ""))
+```
+
+<font size = '6'>Since theWe can also see that this dataset contains houses from outside the City of London and that the Location variable does not have entries for 962 of the 3480 listings.</font> 
+
+## Cleaning
+
+<font size = '6'>- So we cleaned the dataset by:
+1. Filtering out all houses that are not in London.
+2. Removing the variables "No. of bathrooms" and "No. of receptions."^2^
+3. Creating variable: "price_per_sq_ft" = "Price"/"Area in sq ft"
+4. Extracting the District Code from the "Postal Code" variable.^3^
+5. Assigning each District code to one of the 4 large regions.^4^
+
+Next we will expand on how we assigned each property to one of 4 large regions</font> 
 
 ## Discription & Citation
 
@@ -54,16 +91,15 @@ text-align: center
 ;">
 
 1. Kulkarni, A., 2021. Housing Prices in London. [online] Kaggle.com. <https://www.kaggle.com/arnavkulkarni/housing-prices-in-london> [Accessed 19 November 2021].
-2. Because of the flaw of the original data, the variable "No. of bedrooms", "No. of bathrooms", and "No. of receptions are all the same for each observation. We checked some famous houses and figured out that this may represents the number of bedrooms
-3. District Code is always the first two to four characters in postal code. i.e: SW9X 9BT has District Code of SW9. This always indicates which region does the house locate.
+2. Because of the flaw of the original data, the variable "No. of bedrooms", "No. of bathrooms", and "No. of receptions are all the same for each observation. We checked some famous houses and figured out that this number represents the number of bedrooms.
+3. District Code is always the first two to four characters in postal code. i.e: SW9X 9BT has District Code of SW9. This code indicates which region does the house locate.
 4. The standard of dividing regions are shown at next page.
 
 </h1>
 
 # The Closer, the Better?
 
-- In the beginning of the analysis, we will start identify how the location of the house affects the price.
-I will divide the region in London into 4 big regions: from city center to further places, see the image below.
+We have chosen to divide the District codes into 4 regions shown on the map below
 
 - Different marked colour represents different regions:
 1. Red represents group "A-Central"
