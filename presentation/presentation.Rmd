@@ -32,13 +32,9 @@ Original_London <- read.csv("../data/London.csv")
 #{data-background-image="img/confetti.jpg"}
 ```
 
-<<<<<<< HEAD
-## Our goal is to find out what and how are region, house type, and total aera affects housing price in London 
-=======
 # Project Goal
 In this project we will explore how factors such as: Location, House type, Area and Number of Bedrooms influence the price of property in London.
 The goal of this project is to use this information to identify which factors have the greatest influence on the price of housing. 
->>>>>>> f077333c209ea6c9c95f4fb38857937adebd97d6
 
 # About the Data
 
@@ -67,7 +63,7 @@ glimpse(select(Original_London, c(10)))
 nrow(filter(Original_London, Location == ""))
 ```
 
-<font size = '6'>Since theWe can also see that this dataset contains houses from outside the City of London and that the Location variable does not have entries for 962 of the 3480 listings.</font> 
+<font size = '6'>We can also see that this dataset contains houses from outside the City of London and that the Location variable does not have entries for 962 of the 3480 listings.</font> 
 
 ## Cleaning
 
