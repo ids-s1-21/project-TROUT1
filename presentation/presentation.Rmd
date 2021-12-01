@@ -19,6 +19,8 @@ library(knitr)
 library(revealjs)
 library(tidyr)
 library(purrr)
+library(sf)
+library(leaflet)
 ```
 
 ```{r setup, include=FALSE}
@@ -28,6 +30,7 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 
 ```{r load-data, include=FALSE}
 London <- read_csv("../data/Fixed-London.csv")
+London_map <- st_read("../data/Map_templet/Fixed-London-Map.shp", stringsAsFactors = FALSE)
 Original_London <- read.csv("../data/London.csv")
 #{data-background-image="img/confetti.jpg"}
 ```
@@ -120,7 +123,7 @@ pound <- label_dollar(
 )
 London%>%
   ggplot(aes(price_per_sq_ft))+
-  geom_histogram(bandwidth = 20)+
+  geom_histogram(binwidth = 100)+
   facet_wrap(~ large_region, ncol = 1)+
   scale_x_continuous(labels = pound)+
   labs(
@@ -147,6 +150,31 @@ London%>%
 ```
 
 Surprisingly, we found that the housing price per sq ft is not always decreasing when the region we are looking at is further and further from the city center. When we encounter "D-Further Outer" region, the price increase a little. This happens to mean, median, and quarter quantiles, which means the housing price per sq ft in "Further Outer" region is generally higher than the "Outer" region.
+
+
+## Map&Interpretation
+
+<font size = '6'>- We are curious about if there is a region in "Further Outer" has a very high housing price per sq ft that is affecting our result. So we made a map to see the distribution of housing price.</font>
+
+```{r echo = FALSE, warning = FALSE, message = FALSE}
+London_map%>%
+  ggplot()+
+  geom_sf(aes(colour = mn_pr__))+
+  scale_colour_gradient(low = "blue", high = "red")+
+  labs(
+    title = "Mean Price per sq ft Map of London",
+    subtitle = "Gray parts are aera that are missing data",
+    color = "Mean Price per sq ft",
+    alt = "Map data from: https://data.london.gov.uk/dataset/ordnance-survey-code-point [Accessed on nov.30 2021]"
+  )
+```
+
+## Map&Interpretation
+
+- It seems that there is no such region exsists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
+
+
+
 
 # Hello World
 
