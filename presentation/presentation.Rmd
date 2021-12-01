@@ -30,7 +30,7 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 London <- read_csv("../data/Fixed-London.csv")
 ```
 
-## Our goal is to find out what and how are region, house type, and total aera affects housing price in London {data-background-image="img/confetti.jpg"}
+## Our goal is to find out what and how are region, house type, and total aera affects housing price in London 
 
 # About the Data
 

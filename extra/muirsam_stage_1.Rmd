@@ -13,10 +13,11 @@ library(tidyr)
 ```
 
 ```{r message=FALSE}
-London <- read_csv("../data/London.csv")
+London <- read_csv("../data/Fixed-London.csv")
 ```
 
-```{r Clean data, warning=FALSE}
+```{r Clean data, warning=FALSE, eval=FALSE}
+#This code chunk is nolonger used and has been integrated to tidy up data r script
 # This is code from ZHIXIN's stage 1&2 ---------
 posremo <- function(postcode) {
   temp = 0
@@ -66,7 +67,8 @@ London <- London%>%
 Fixed_London = select(London, -c(7,8))
 
 #I can't seem to get the file to write. I'll try again later
-write_csv(Fixed_London, path = "../data/Fixed-London.csv")
+#write_csv(Fixed_London, path = "../data/Fixed-London.csv")
+
 
 ```
 

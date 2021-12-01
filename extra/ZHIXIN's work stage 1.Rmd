@@ -48,3 +48,6 @@ London%>%
   facet_wrap(~ region)
 ```
 Quite embarrased since the faceted wrap is not readable for there are too many regions, but we will fix this problem by deviding them to larger regions( such as W1-W3 and E1-E3 as one group)
+
+
+{data-background-image="img/confetti.jpg"}
