@@ -114,6 +114,8 @@ fit_central_fixed <- lm(
 tidy(fit_central_fixed) 
 ```
 
+This result is unusual. It seems that the 'further outer' regions have a greater price per square foot than the 'outer' regions which are closer to the center. We would expect prices to decrease continually as we move further away from the center of London, but this is not the case. 
+
 ```{r}
 London %>%
   group_by(region) %>%
