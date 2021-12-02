@@ -223,7 +223,7 @@ Area_Price <- linear_reg() %>%
 glance(Area_Price)
 
 ```
-Due to the Graph being cluttered due to over plotting i instead used glance to create a table to show there is a strong correlation between area and price of housing. We can tell this this from the high adjusted r squared value of 0.575(to 3dp).
+
 
 ## Correlation between Area and Price over the Middle region
 
@@ -252,7 +252,6 @@ Further_Outer1 <- linear_reg() %>%
 glance(Further_Outer1)
 
 ```
-The increase in adjusted r squared from 0.575(to 3dp) to 0.730(to 3dp) shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.
 
 
 ## Conclusion
