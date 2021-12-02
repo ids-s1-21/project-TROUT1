@@ -229,7 +229,7 @@ London %>%
 ggplot(aes(x = `Area in sq ft`, y = Price)) +
   geom_point() +
   geom_smooth(method = "lm", color = "blue", se = FALSE) +
-  labs(title = "Linear model of Area against Price in the Further Outer region") +
+  labs(title = "Linear model of Area against Price in the Middle region") +
   scale_y_continuous(labels = label_dollar(scale = 0.000001, suffix = "M"))
 
 ```
