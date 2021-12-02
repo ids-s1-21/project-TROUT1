@@ -198,7 +198,7 @@ London %>%
 
 ## Limitations with our data
 
-- The data set was scraped poorly. It had repeated values under the number of bathrooms,bedrooms and foyer variables. After removing the number of bathroom and foyer variables our data set contained a limited amount of data to manipulate.
+- The data set was scraped poorly. It had repeated values under the number of bathrooms,bedrooms and reception variables. After removing the number of bathroom and foyer variables our data set contained a limited amount of data to manipulate.
 
 -The data set only contained observations from certain regions of London. This makes our conclusions drawn about how location effects house price less reliable. 
 
