@@ -1,6 +1,6 @@
-Project title
+How Various Factors Affect Housing Prices in London
 ================
-by Team name
+by TROUT1
 
 ## Summary
 
@@ -35,5 +35,4 @@ sure to note the retrieval date.
 
 ## References
 
-List any references here. You should, at a minimum, list your data
-source.
+1. Kulkarni, A., 2021. Housing Prices in London. [online] Kaggle.com. <https://www.kaggle.com/arnavkulkarni/housing-prices-in-london> [Accessed 19 November 2021].
