@@ -249,14 +249,14 @@ Further_Outer1 <- linear_reg() %>%
 glance(Further_Outer1)
 
 ```
-The increase in adjusted r squared from 0.574 to 0.730 shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.
+The increase in adjusted r squared from 0.575 to 0.730 shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.
 
 
 ## Conclusion
 
 - Generally as you move further from the center of london house prices decrease and the price per square foot decreases. However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend and is because both houses and apartments are on more expensive on average in the further outer region as shown in the previous slide this could be because of the prevalence of cheaper terrace hosing in the outer region.
 
-- There is a fairly simplistic linear relationship between area of a home and the price of a home this can be shown as their linear regression model between the two has a adjusted r squared value of ...... . When the points are plotted on a scatter plot you can see a clear positive correlation . 
+- There is a fairly simplistic linear relationship between area of a home and the price of a home this can be shown as their linear regression model between the two has a high adjusted r squared value of 0.575 . When the points are plotted on a scatter plot you can also see a clear positive correlation . 
 
 
 
