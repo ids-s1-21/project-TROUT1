@@ -1,6 +1,6 @@
 How Various Factors Affect Housing Prices in London
 ================
-by TROUT1
+by TROUT1 (Zhixin & Sam & Josh)
 
 ## Summary
 
