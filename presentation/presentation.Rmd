@@ -178,7 +178,7 @@ London_map%>%
 
 ```{r message=FALSE}
 London %>%
-  filter(`House Type` %in% c("Flat / Apartment", "House" , "New development" )) %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House" )) %>%
   group_by(`House Type`, large_region) %>%
   summarise(
     `Area in sq ft` = mean(`Area in sq ft`),
@@ -189,16 +189,19 @@ London %>%
 
 ## Conclusion
 
-- Generally as you move further from the center of london house prices decrease and the price per square foot decreases. However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend and is because both houses and apartments are on more expensive on average in the further outer region this could be because of the prevalence of cheaper council estate homes in the outer region.
-- There is a fairly simplistic linear relationship between area of a home and the price of a home this can be shown as their linear regression model has a adjusted r squared value of ...... . When the points are plotted on a scatter plot you can see a clear positive correlation . 
+- Generally as you move further from the center of london house prices decrease and the price per square foot decreases. However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend and is because both houses and apartments are on more expensive on average in the further outer region as shown in the previous slide this could be because of the prevalence of cheaper terrace hosing in the outer region.
+
+- There is a fairly simplistic linear relationship between area of a home and the price of a home this can be shown as their linear regression model between the two has a adjusted r squared value of ...... . When the points are plotted on a scatter plot you can see a clear positive correlation . 
 
 
 
 ## Limitations with our data
 
-- The data set was scraped poorly. It had repeated values under the number of bathrooms,bedrooms and foyer variables. After removing the number of bathroom and foyer variables our dataset contained a limited amount of data to manipulate.
+- The data set was scraped poorly. It had repeated values under the number of bathrooms,bedrooms and foyer variables. After removing the number of bathroom and foyer variables our data set contained a limited amount of data to manipulate.
 
--The data set only contained observations from certain regions of London. This makes our conclusions drawn about how location effects house price less reliable.
+-The data set only contained observations from certain regions of London. This makes our conclusions drawn about how location effects house price less reliable. 
+
+-The data set gave limited information on specifics of the properties for example if the houses were terrace, detached or semidetached. As well as if the homes came with any land or any amenities.
 
 
 
