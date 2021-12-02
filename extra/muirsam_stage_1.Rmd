@@ -88,9 +88,9 @@ London %>%
   geom_bar() 
 ```
 ```{r message=FALSE}
-#Removing duplexes, Mews and Studios and faceting by large region to compare house types (trying to explain how in ZHIXINs plot the further outer region was more expensive then the outer region on average)
+#Removing duplexes, Mews, Penthouses and Studios and faceting by large region to compare house types (trying to explain how in ZHIXINs plot the further outer region was more expensive then the outer region on average)
 London %>%
-  filter(`House Type` %in% c("Flat / Apartment", "House" , "New development" , "Penthouse")) %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House" , "New development" )) %>%
   ggplot(aes(x = `House Type`)) +
   geom_bar() +
   facet_wrap(~large_region)

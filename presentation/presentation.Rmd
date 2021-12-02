@@ -1,5 +1,5 @@
 ---
-title: "How Multiple Factors Affect the Housing Price in London"
+title: "How Various Factors Affect Housing Prices in London"
 subtitle: <font size='6'></font>
 author: <font size='8'>TROUT1 <br> Zhixin & Sam & Josh</font>
 institute: <font size='10'>University of Edinburgh</font>
@@ -175,7 +175,8 @@ London_map%>%
 
 ## Conclusion
 
-
+- Generally as you move further from the center of london house prices decrease and the price per square foot decreases. However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend and could be because houses in the suburbs are generally larger detached or semi detached houses which demand higher prices then houses in the outer sector, i would also assume there are a more concentrated number of cheaper council flat style housing in the outer region when compared to the further outer region.
+- 
 
 
 

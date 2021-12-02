@@ -87,7 +87,7 @@ London%>%
   mutate(
     Price_in_M = Price/1000000
   )%>%
-  ggplot(aes(x = `Area in sq ft`, y = Price_in_M, color = region))+
+  ggplot(aes(x = `Area in sq ft`, y = Price_in_M))+
   geom_point()+
   facet_wrap(~ large_region)+
   scale_y_continuous(labels = pound_in_M)+
