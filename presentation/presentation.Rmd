@@ -182,7 +182,7 @@ London_map%>%
 
 - It seems that no such region exists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
 
-## Prices grouped by region and type of housing (to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)
+## Prices grouped by region and type of housing 
 
 
 ```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
@@ -248,12 +248,12 @@ Further_Outer1 <- linear_reg() %>%
 glance(Further_Outer1)
 
 ```
-The increase in adjusted r squared from 0.575 to 0.730 shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.
+The increase in adjusted r squared from 0.575(to 3dp) to 0.730(to 3dp) shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.
 
 
 ## Conclusion
 
-- Generally as you move further from the center of london house prices decrease  
+- Generally as you move further from the center of London house prices decrease  
 
 -However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend or our hypothesis.
 
@@ -263,7 +263,7 @@ The increase in adjusted r squared from 0.575 to 0.730 shows that limiting the d
 
 ## Limitations with our data
 
-- The data set was poorly webscraped.
+- The data set was poorly web scraped.
 
 -The data set only contained observations from certain regions of London.  
 
