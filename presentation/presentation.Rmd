@@ -154,7 +154,7 @@ Surprisingly, we found that the housing price per sq ft is not always decreasing
 
 ## Map&Interpretation
 
-<font size = '6'>- We are curious about if there is a region in "Further Outer" has a very high housing price per sq ft that is affecting our result. So we made a map to see the distribution of housing price.</font>
+<font size = '6'>- We are curious if there is a region in "Further Outer" that has a very high housing price per sq ft which is affecting our result. So we made a map to see the distribution of housing price.</font>
 
 ```{r echo = FALSE, warning = FALSE, message = FALSE}
 London_map%>%
@@ -171,7 +171,19 @@ London_map%>%
 
 ## Map&Interpretation
 
-- It seems that there is no such region exsists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
+- It seems that no such region exists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
+
+## Conclusion
+
+
+
+
+
+## Limitations with our data
+
+- The data set was scraped poorly. It had repeated values under the number of bathrooms,bedrooms and foyer variables. After removing the number of bathroom and foyer variables our dataset contained a limited amount of data to manipulate.
+
+-The data set only contained observations from certain regions of London. This makes our conclusions drawn about how location effects house price less reliable.
 
 
 
