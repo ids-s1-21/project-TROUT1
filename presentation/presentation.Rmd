@@ -197,7 +197,7 @@ London %>%
   arrange(desc(large_region))
 ```
 
-## Model showing correlation between price and area
+## Model showing correlation between price and area over all large regions
 
 ```{r data for housetype2, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
@@ -208,7 +208,7 @@ ggplot(aes(x = `Area in sq ft`, y = Price)) +
   scale_y_continuous(labels = label_dollar(scale = 0.000001, suffix = "M"))
 
 ```
-## Table showing correlation between Area and Price
+## Table showing correlation between Area and Price over all large regions 
 
 ```{r data for housetype3, echo = FALSE, warning = FALSE, message=FALSE}
 
@@ -219,6 +219,38 @@ Area_Price <- linear_reg() %>%
 glance(Area_Price)
 
 ```
+Due to the Graph being cluttered due to over plotting i instead used glance to show there is a strong correlation between area and price of housing. We can tell this this from the high adjusted r squared value of 0.575(to 3dp).
+
+## Correlation between Area and Price over the Middle region
+
+```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+London %>%
+  filter(large_region == "Middle") %>%
+ggplot(aes(x = `Area in sq ft`, y = Price)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "blue", se = FALSE) +
+  labs(title = "Linear model of Area against Price in the Further Outer region") +
+  scale_y_continuous(labels = label_dollar(scale = 0.000001, suffix = "M"))
+
+```
+
+## Table showing correlation between Area and Price over the Middle region
+
+```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+
+Further_Outer <- London %>%
+  filter(large_region == "Middle")
+  
+Further_Outer1 <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit( formula = Price ~ `Area in sq ft`, data = Further_Outer)
+  
+
+glance(Further_Outer1)
+
+```
+The increase in adjusted r squared from 0.574 to 0.730 shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.
+
 
 ## Conclusion
 
