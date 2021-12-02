@@ -43,7 +43,7 @@ The goal of this project is to use this information to identify which factors ha
 
 <font size = '6'>The dataset we used was obtained from Kaggle. According to the uploader the information was obtained via web scraping. Below is what the original data looks like.</font>
 
-```{r, echo=FALSE}
+```{r glimpse of data, echo=FALSE}
 glimpse(Original_London)
 ```
 
@@ -52,7 +52,7 @@ glimpse(Original_London)
 
 <font size = '6'>There are some large problems with the dataset we need to fix before we begin our analysis.</font>
 
-```{r, echo=FALSE}
+```{r glimpse of problem, echo=FALSE}
 glimpse(select(Original_London, c(6,7,8)))
 ```
 
@@ -60,7 +60,7 @@ glimpse(select(Original_London, c(6,7,8)))
 
 ## Problems
 
-```{r, echo=FALSE}
+```{r, glimpse of problem2, echo=FALSE}
 glimpse(select(Original_London, c(10)))
 
 nrow(filter(Original_London, Location == ""))
@@ -114,7 +114,7 @@ We have chosen to divide the District codes into 4 regions shown on the map belo
 - What we expected is that: The closer to the city center, the more expensive the house is. That is, higher price per sq ft.
 
 ## General Glimpse
-```{r echo = FALSE, warning = FALSE, message = FALSE}
+```{r London Histrogram, echo = FALSE, warning = FALSE, message = FALSE}
 pound <- label_dollar(
   prefix = "£", 
   suffix = "",
@@ -136,7 +136,7 @@ London%>%
 
 ## Data&Interpretation
 
-```{r echo = FALSE, warning = FALSE, message = FALSE}
+```{r data interpretation, echo = FALSE, warning = FALSE, message = FALSE}
 London%>%
   group_by(large_region)%>%
   summarise(
@@ -156,7 +156,16 @@ Surprisingly, we found that the housing price per sq ft is not always decreasing
 
 <font size = '6'>- We are curious if there is a region in "Further Outer" that has a very high housing price per sq ft which is affecting our result. So we made a map to see the distribution of housing price.</font>
 
-```{r echo = FALSE, warning = FALSE, message = FALSE}
+```{r map of London, echo = FALSE, warning = FALSE, message = FALSE}
+# This code chunk is power consuming
+# In case that this code does not work, uncomment the following code to generate back-up map
+
+# install.packages("png")
+# library(png)
+# pp <- readPNG("presentation_files/Support-files/London-Price-Map.png")
+# plot.new() 
+# rasterImage(pp,0,0,1,1)
+
 London_map%>%
   ggplot()+
   geom_sf(aes(colour = mn_pr__))+
@@ -176,7 +185,7 @@ London_map%>%
 ## Prices grouped by region and type of housing (to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)
 
 
-```{r echo = FALSE, warning = FALSE, message=FALSE}
+```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
   filter(`House Type` %in% c("Flat / Apartment", "House", "New development" )) %>%
   filter(large_region %in% c("Further Outer", "Outer")) %>%
