@@ -182,7 +182,8 @@ London_map%>%
 
 - It seems that no such region exists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
 
-## Prices grouped by region and type of housing (to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)
+# Prices grouped by region and type of housing 
+(to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)
 
 
 ```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
@@ -208,6 +209,7 @@ ggplot(aes(x = `Area in sq ft`, y = Price)) +
   scale_y_continuous(labels = label_dollar(scale = 0.000001, suffix = "M"))
 
 ```
+
 ## Table showing correlation between Area and Price over all large regions 
 
 ```{r data for housetype3, echo = FALSE, warning = FALSE, message=FALSE}
@@ -255,7 +257,7 @@ The increase in adjusted r squared from 0.575 to 0.730 shows that limiting the d
 
 - Generally as you move further from the center of london house prices decrease  
 
--However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend or our hypothesis.
+- However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend or our hypothesis.
 
 - There is a fairly simplistic linear relationship between area of a home and the price of a home . 
 
@@ -265,9 +267,9 @@ The increase in adjusted r squared from 0.575 to 0.730 shows that limiting the d
 
 - The data set was poorly webscraped.
 
--The data set only contained observations from certain regions of London.  
+- The data set only contained observations from certain regions of London.  
 
--The data set gave limited information on specifics of the properties for example if the houses were terrace, detached or semidetached. As well as if the homes came with any land or any amenities.
+- The data set gave limited information on specifics of the properties for example if the houses were terrace, detached or semidetached. As well as if the homes came with any land or any amenities.
 
 
 
