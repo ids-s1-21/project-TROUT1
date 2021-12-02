@@ -219,6 +219,7 @@ Area_Price <- linear_reg() %>%
 glance(Area_Price)
 
 ```
+Due to the Graph being cluttered due to over plotting i instead used glance to show there is a strong correlation between area and price of housing. We can tell this this from the high adjusted r squared value of 0.575(to 3dp)  
 
 ## Conclusion
 
