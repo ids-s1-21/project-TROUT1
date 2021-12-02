@@ -156,7 +156,7 @@ Surprisingly, we found that the housing price per sq ft is not always decreasing
 
 <font size = '6'>- We are curious if there is a region in "Further Outer" that has a very high housing price per sq ft which is affecting our result. So we made a map to see the distribution of housing price.</font>
 
-```{r map of London, echo = FALSE, warning = FALSE, message = FALSE}
+```{r map of London, echo = FALSE, warning = FALSE message = FALSE}
 # This code chunk is power consuming
 # In case that this code does not work, uncomment the following code to generate back-up map
 
@@ -195,6 +195,29 @@ London %>%
     Price = mean(Price)
   ) %>%
   arrange(desc(large_region))
+```
+
+## Model showing correlation between price and area
+
+```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+London %>%
+ggplot(aes(x = `Area in sq ft`, y = Price)) +
+  geom_point() +
+  geom_smooth(method = "lm", color = "blue", se = FALSE) +
+  labs(title = "Linear model of Area against Price") +
+  scale_y_continuous(labels = label_dollar(scale = 0.000001, suffix = "M"))
+
+```
+## Table showing correlation between Area and Price
+
+```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+
+Area_Price <- linear_reg() %>%
+  set_engine("lm") %>%
+  fit( Price ~ `Area in sq ft` , data = London)
+
+glance(Area_Price)
+
 ```
 
 ## Conclusion
