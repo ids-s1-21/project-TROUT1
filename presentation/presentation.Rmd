@@ -56,7 +56,7 @@ glimpse(Original_London)
 glimpse(select(Original_London, c(6,7,8)))
 ```
 
-<font size = '6'>As you can see, 'No. of Bedrooms', 'No. of Bathrooms' and 'No. of Receptions' are the same as each other in each record. By looking up some of the listings we determined that this number represents the 'No. of Bedrooms'</font> 
+<font size = '6'>As you can see, 'No. of Bedrooms', 'No. of Bathrooms' and 'No. of Receptions' are the same as each other in this dataset. By looking up some of the listings we determined that this number represents the 'No. of Bedrooms'</font> 
 
 ## Problems
 
