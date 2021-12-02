@@ -184,9 +184,6 @@ London_map%>%
 
 
 # Prices grouped by region and type of housing 
-(to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)
-
-
 
 ```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
