@@ -173,12 +173,13 @@ London_map%>%
 
 - It seems that no such region exists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
 
-## Prices grouped by region and type of housing 
+## Prices grouped by region and type of housing (to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)
 
 
 ```{r echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
-  filter(`House Type` %in% c("Flat / Apartment", "House", "New Development" )) %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House", "New development" )) %>%
+  filter(large_region %in% c("Further Outer", "Outer")) %>%
   group_by(`House Type`, large_region) %>%
   summarise(
     `Area in sq ft` = mean(`Area in sq ft`),
