@@ -173,10 +173,24 @@ London_map%>%
 
 - It seems that no such region exists. The housing price per sq ft in "Further outer" is higher than "Outer" region in general.
 
+## Prices grouped by region and type of housing 
+
+
+```{r message=FALSE}
+London %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House" , "New development" )) %>%
+  group_by(`House Type`, large_region) %>%
+  summarise(
+    `Area in sq ft` = mean(`Area in sq ft`),
+    Price = mean(Price)
+  ) %>%
+  arrange(desc(large_region))
+```
+
 ## Conclusion
 
-- Generally as you move further from the center of london house prices decrease and the price per square foot decreases. However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend and could be because houses in the suburbs are generally larger detached or semi detached houses which demand higher prices then houses in the outer sector, i would also assume there are a more concentrated number of cheaper council flat style housing in the outer region when compared to the further outer region.
-- 
+- Generally as you move further from the center of london house prices decrease and the price per square foot decreases. However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend and is because both houses and apartments are on more expensive on average in the further outer region this could be because of the prevalence of cheaper council estate homes in the outer region.
+- There is a fairly simplistic linear relationship between area of a home and the price of a home this can be shown as their linear regression model has a adjusted r squared value of ...... . When the points are plotted on a scatter plot you can see a clear positive correlation . 
 
 
 
