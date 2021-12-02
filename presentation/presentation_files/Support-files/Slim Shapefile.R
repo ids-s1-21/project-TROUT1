@@ -6,7 +6,7 @@
 # Then download "Code-Point London(shapefile)"
 # Or use this link directly: 
 # https://data.london.gov.uk/download/ordnance-survey-code-point/69919411-89c5-4dab-a345-1733a304fd39/Code-Point%20London%20(shapefile).zip
-# This script takes about 5 min on my local Rstudio to run.
+# This script takes about 15 min on my local Rstudio to run.
 # (My laptop is MacBookPro 2019 with i9-9880H)
 
 # Read the original file

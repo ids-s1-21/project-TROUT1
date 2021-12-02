@@ -48,6 +48,7 @@ cleaned_map <- London_map%>%
     substr(postcode,0,3) %in% c(central, subcentral, suburban, other) |
     substr(postcode,0,4) %in% c(central, subcentral, suburban, other)
   )
+
 ```
 
 ```{r}
@@ -68,6 +69,14 @@ find_mean_price <- function(District_code){
   return(result)
 }
 
+cleaned_map <- cleaned_map%>%
+  select(c(1,2,3,14,16))
+
+cleaned_map <- cleaned_map%>%
+  mutate(
+    mean_price_per_sqft = map_dbl(District_code, find_mean_price)
+  )
+
 cleaned_map%>%
   mutate(
     mean_price_per_sqft = map_dbl(District_code, find_mean_price)
@@ -81,6 +90,22 @@ cleaned_map%>%
     legend = "Mean Price per sq ft",
     alt = "Map data from: https://data.london.gov.uk/dataset/ordnance-survey-code-point [Accessed on nov.30 2021]"
   )
+
+st_write(cleaned_map, "ExtraData/Fixed-London-Map.shp")
+```
+```{r warning = FALSE}
+London_map <- st_read("ExtraData/Fixed-London-Map.shp", stringsAsFactors = FALSE)
+London_map%>%
+  ggplot()+
+  geom_sf(aes(colour = mn_pr__))+
+  scale_fill_gradient(low = "black", high = "white")+
+  labs(
+    title = "Mean Price per sq ft Map of London",
+    subtitle = "Gray parts are aera that are missing data",
+    legend = "Mean Price per sq ft",
+    alt = "Map data from: https://data.london.gov.uk/dataset/ordnance-survey-code-point [Accessed on nov.30 2021]"
+  )
+
 ```
 
 
