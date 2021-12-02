@@ -646,14 +646,28 @@ text-align: center
 ## 5 House            C-Outer                   2236. 1826378.
 ## 6 New development  C-Outer                   1325. 1608774.</code></pre>
 </section>
-<section id="model-showing-correlation-between-price-and-area" class="slide level2">
-<h2>Model showing correlation between price and area</h2>
-<p><img src="presentation_files/figure-revealjs/data%20for%20housetype2-1.png" width="80%" /> ## Table showing correlation between Area and Price</p>
+<section id="model-showing-correlation-between-price-and-area-over-all-large-regions" class="slide level2">
+<h2>Model showing correlation between price and area over all large regions</h2>
+<p><img src="presentation_files/figure-revealjs/data%20for%20housetype2-1.png" width="80%" /> ## Table showing correlation between Area and Price over all large regions</p>
 <pre><code>## # A tibble: 1 × 12
 ##   r.squared adj.r.squared    sigma statistic p.value    df  logLik    AIC    BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1     0.575         0.575 1564528.     4020.       0     1 -46606. 93218. 93236.
 ## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<p>Due to the Graph being cluttered due to over plotting i instead used glance to show there is a strong correlation between area and price of housing. We can tell this this from the high adjusted r squared value of 0.575(to 3dp).</p>
+</section>
+<section id="correlation-between-area-and-price-over-the-middle-region" class="slide level2">
+<h2>Correlation between Area and Price over the Middle region</h2>
+<p><img src="presentation_files/figure-revealjs/data%20for%20housetype4-1.png" width="80%" /></p>
+</section>
+<section id="table-showing-correlation-between-area-and-price-over-the-middle-region" class="slide level2">
+<h2>Table showing correlation between Area and Price over the Middle region</h2>
+<pre><code>## # A tibble: 1 × 12
+##   r.squared adj.r.squared  sigma statistic   p.value    df  logLik    AIC    BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     0.730         0.730 1.23e6     3024. 2.99e-320     1 -17290. 34585. 34600.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+<p>The increase in adjusted r squared from 0.574 to 0.730 shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.</p>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
@@ -728,15 +742,15 @@ like this
 
 <section id="code" class="title-slide slide level1">
 <h1>Code</h1>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a boring regression</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a boring regression</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
 ## 2 speed           3.93     0.416      9.46 1.49e-12</code></pre>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

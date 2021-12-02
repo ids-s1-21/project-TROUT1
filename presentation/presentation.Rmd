@@ -223,9 +223,9 @@ Due to the Graph being cluttered due to over plotting i instead used glance to s
 
 ## Correlation between Area and Price over the Middle region
 
-```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+```{r data for housetype4, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
-  filter(large_region == "Middle") %>%
+  filter(large_region == "B-Middle") %>%
 ggplot(aes(x = `Area in sq ft`, y = Price)) +
   geom_point() +
   geom_smooth(method = "lm", color = "blue", se = FALSE) +
@@ -236,10 +236,9 @@ ggplot(aes(x = `Area in sq ft`, y = Price)) +
 
 ## Table showing correlation between Area and Price over the Middle region
 
-```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
-
+```{r data for housetype5, echo = FALSE, warning = FALSE, message=FALSE}
 Further_Outer <- London %>%
-  filter(large_region == "Middle")
+  filter(large_region == "B-Middle")
   
 Further_Outer1 <- linear_reg() %>%
   set_engine("lm") %>%
