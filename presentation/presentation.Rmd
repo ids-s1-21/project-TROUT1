@@ -176,9 +176,9 @@ London_map%>%
 ## Prices grouped by region and type of housing 
 
 
-```{r message=FALSE}
+```{r echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
-  filter(`House Type` %in% c("Flat / Apartment", "House" )) %>%
+  filter(`House Type` %in% c("Flat / Apartment", "House", "New Development" )) %>%
   group_by(`House Type`, large_region) %>%
   summarise(
     `Area in sq ft` = mean(`Area in sq ft`),
