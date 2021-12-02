@@ -221,11 +221,11 @@ glance(Area_Price)
 ```
 Due to the Graph being cluttered due to over plotting i instead used glance to show there is a strong correlation between area and price of housing. We can tell this this from the high adjusted r squared value of 0.575(to 3dp).
 
-## Correlation between Area and Price over the Further Outer region
+## Correlation between Area and Price over the Middle region
 
 ```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
-  filter(large_region == "Further Outer") %>%
+  filter(large_region == "Middle") %>%
 ggplot(aes(x = `Area in sq ft`, y = Price)) +
   geom_point() +
   geom_smooth(method = "lm", color = "blue", se = FALSE) +
@@ -234,12 +234,12 @@ ggplot(aes(x = `Area in sq ft`, y = Price)) +
 
 ```
 
-## Table showing correlation between Area and Price over the Further Outer region
+## Table showing correlation between Area and Price over the Middle region
 
 ```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
 
 Further_Outer <- London %>%
-  filter(large_region == "Further Outer")
+  filter(large_region == "Middle")
   
 Further_Outer1 <- linear_reg() %>%
   set_engine("lm") %>%
