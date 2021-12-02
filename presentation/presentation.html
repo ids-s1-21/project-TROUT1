@@ -635,10 +635,25 @@ text-align: center
 </section>
 <section id="prices-grouped-by-region-and-type-of-housing-to-look-at-if-the-difference-in-mean-price-between-the-outer-and-further-outer-regions-are-concentrated-into-one-type-of-housing-its-not" class="slide level2">
 <h2>Prices grouped by region and type of housing (to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)</h2>
-<pre><code>## # A tibble: 0 × 4
-## # Groups:   House Type [0]
-## # … with 4 variables: House Type &lt;chr&gt;, large_region &lt;chr&gt;,
-## #   Area in sq ft &lt;dbl&gt;, Price &lt;dbl&gt;</code></pre>
+<pre><code>## # A tibble: 6 × 4
+## # Groups:   House Type [3]
+##   `House Type`     large_region    `Area in sq ft`    Price
+##   &lt;chr&gt;            &lt;chr&gt;                     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Flat / Apartment D-Further Outer            992. 1064751.
+## 2 House            D-Further Outer           2316. 2048030.
+## 3 New development  D-Further Outer           1369. 1535955.
+## 4 Flat / Apartment C-Outer                    888.  767305.
+## 5 House            C-Outer                   2236. 1826378.
+## 6 New development  C-Outer                   1325. 1608774.</code></pre>
+</section>
+<section id="model-showing-correlation-between-price-and-area" class="slide level2">
+<h2>Model showing correlation between price and area</h2>
+<p><img src="presentation_files/figure-revealjs/data%20for%20housetype2-1.png" width="80%" /> ## Table showing correlation between Area and Price</p>
+<pre><code>## # A tibble: 1 × 12
+##   r.squared adj.r.squared    sigma statistic p.value    df  logLik    AIC    BIC
+##       &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+## 1     0.575         0.575 1564528.     4020.       0     1 -46606. 93218. 93236.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
@@ -713,15 +728,15 @@ like this
 
 <section id="code" class="title-slide slide level1">
 <h1>Code</h1>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a boring regression</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a boring regression</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
 <pre><code>## # A tibble: 2 × 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
 ## 2 speed           3.93     0.416      9.46 1.49e-12</code></pre>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 12
 ##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;

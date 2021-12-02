@@ -156,7 +156,7 @@ Surprisingly, we found that the housing price per sq ft is not always decreasing
 
 <font size = '6'>- We are curious if there is a region in "Further Outer" that has a very high housing price per sq ft which is affecting our result. So we made a map to see the distribution of housing price.</font>
 
-```{r map of London, echo = FALSE, warning = FALSE message = FALSE}
+```{r map of London, echo = FALSE, warning = FALSE, message = FALSE}
 # This code chunk is power consuming
 # In case that this code does not work, uncomment the following code to generate back-up map
 
@@ -188,7 +188,7 @@ London_map%>%
 ```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
   filter(`House Type` %in% c("Flat / Apartment", "House", "New development" )) %>%
-  filter(large_region %in% c("Further Outer", "Outer")) %>%
+  filter(large_region %in% c("D-Further Outer", "C-Outer")) %>%
   group_by(`House Type`, large_region) %>%
   summarise(
     `Area in sq ft` = mean(`Area in sq ft`),
@@ -199,7 +199,7 @@ London %>%
 
 ## Model showing correlation between price and area
 
-```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+```{r data for housetype2, echo = FALSE, warning = FALSE, message=FALSE}
 London %>%
 ggplot(aes(x = `Area in sq ft`, y = Price)) +
   geom_point() +
@@ -210,7 +210,7 @@ ggplot(aes(x = `Area in sq ft`, y = Price)) +
 ```
 ## Table showing correlation between Area and Price
 
-```{r data for housetype, echo = FALSE, warning = FALSE, message=FALSE}
+```{r data for housetype3, echo = FALSE, warning = FALSE, message=FALSE}
 
 Area_Price <- linear_reg() %>%
   set_engine("lm") %>%
