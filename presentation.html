@@ -12,71 +12,6 @@
   <link rel="stylesheet" href="presentation_files/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <link rel="stylesheet" href="presentation_files/reveal.js-3.3.0.1/css/theme/simple.css" id="theme">
 
@@ -602,7 +537,7 @@ text-align: center
 </section>
 <section id="deviding-rule-image" class="slide level2">
 <h2>Deviding Rule Image</h2>
-<p><img src="presentation_files/Support-files/London_Region_divide.png"  height="500" width="500"></p>
+<p><img src="presentation/presentation_files/Support-files/London_Region_divide.png"  height="500" width="500"></p>
 <ul>
 <li>What we expected is that: The closer to the city center, the more expensive the house is. That is, higher price per sq ft.</li>
 </ul>
@@ -636,7 +571,6 @@ text-align: center
 <section>
 <section id="prices-grouped-by-region-and-type-of-housing" class="title-slide slide level1">
 <h1>Prices grouped by region and type of housing</h1>
-<p>(to look at if the difference in mean price between the outer and further outer regions are concentrated into one type of housing, its not)</p>
 <pre><code>## # A tibble: 6 × 4
 ## # Groups:   House Type [3]
 ##   `House Type`     large_region    `Area in sq ft`    Price
@@ -659,7 +593,6 @@ text-align: center
 ##       &lt;dbl&gt;         &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1     0.575         0.575 1564528.     4020.       0     1 -46606. 93218. 93236.
 ## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-<p>Due to the Graph being cluttered due to over plotting i instead used glance to create a table to show there is a strong correlation between area and price of housing. We can tell this this from the high adjusted r squared value of 0.575(to 3dp).</p>
 </section>
 <section id="correlation-between-area-and-price-over-the-middle-region" class="slide level2">
 <h2>Correlation between Area and Price over the Middle region</h2>
@@ -672,283 +605,26 @@ text-align: center
 ##       &lt;dbl&gt;         &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
 ## 1     0.730         0.730 1.23e6     3024. 2.99e-320     1 -17290. 34585. 34600.
 ## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-<p>The increase in adjusted r squared from 0.575 to 0.730 shows that limiting the data to 1 large region makes the strength of the correlation between area and price much higher.</p>
 </section>
 <section id="conclusion" class="slide level2">
 <h2>Conclusion</h2>
 <ul>
-<li><p>Generally as you move further from the center of london house prices decrease</p></li>
+<li><p>Generally as you move further from the center of London house prices decrease</p></li>
 <li><p>However our data tells us that on average homes in the further outer sector are more expensive then houses in the outer sector , this did not fit with the trend or our hypothesis.</p></li>
-<li><p>There is a fairly simplistic linear relationship between area of a home and the price of a home .</p></li>
+<li><p>There is a simplistic linear relationship between area of a home and the price of a home .</p></li>
 </ul>
 </section>
 <section id="limitations-with-our-data" class="slide level2">
 <h2>Limitations with our data</h2>
 <ul>
-<li><p>The data set was poorly webscraped.</p></li>
+<li><p>The data set was poorly web scraped.</p></li>
 <li><p>The data set only contained observations from certain regions of London.</p></li>
 <li><p>The data set gave limited information on specifics of the properties for example if the houses were terrace, detached or semidetached. As well as if the homes came with any land or any amenities.</p></li>
 </ul>
 </section></section>
-<section id="hello-world" class="title-slide slide level1">
-<h1>Hello World</h1>
-<ul>
-<li><p>Click the <code>Knit</code> button to compile your presentation</p></li>
-<li><p>Make sure to commit and push all resulting files to your GitHub repo</p></li>
-</ul>
-</section>
+<section id="infinite-progress" class="title-slide slide level1">
+<h1>Infinite Progress</h1>
 
-<section>
-<section id="using-reveal.js" class="title-slide slide level1">
-<h1>Using reveal.js</h1>
-<p>It’s possible to have a horizontal sliding transition as well as nest multiple slides to create a vertical stack.</p>
-<p>When presenting, you use the left/right arrows to step through the top-level (horizontal) slides. When you arrive at a vertical stack you can optionally press the up/down arrows to view the vertical slides or skip past them by pressing the right arrow.</p>
-<p>(click the down key now)</p>
-</section>
-<section id="reveal.js" class="slide level2">
-<h2>reveal.js</h2>
-<ul>
-<li><p>The presentation is created using the <code>reveal.js</code> package</p></li>
-<li><p>You can create a slide show broken up into sections by using the # and ## heading tags</p></li>
-<li><p>You can also create a new slide without a header using a horizontal rule (—-)</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<ul>
-<li>You can also add pauses between content on a slide using (“. . .”)</li>
-</ul>
-<div class="fragment">
-<p>Like this.</p>
-<p>…or using “::: fragment”</p>
-<div class="fragment">
-<p>Like this.</p>
-</div>
-</div>
-</section></section>
-<section id="layouts" class="title-slide slide level1">
-<h1>Layouts</h1>
-<p>You can use plain text</p>
-<ul>
-<li>or bullet points</li>
-</ul>
-<div>
-<div style="float: left; width: 50%;">
-or text in two columns
-</div>
-<div style="float: left; width: 50%;">
-like this
-</div>
-</div>
-<p>because you can combine HTML and Markdown syntax.</p>
-<p style="font-size: 8pt; position: absolute; bottom: -5em; width: 100%; text-align: center;">
-*You can also add footnotes
-</p>
-</section>
-
-<section id="code" class="title-slide slide level1">
-<h1>Code</h1>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># a boring regression</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(dist <span class="sc">~</span> speed, <span class="at">data =</span> cars)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(model)</span></code></pre></div>
-<pre><code>## # A tibble: 2 × 5
-##   term        estimate std.error statistic  p.value
-##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
-## 1 (Intercept)   -17.6      6.76      -2.60 1.23e- 2
-## 2 speed           3.93     0.416      9.46 1.49e-12</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(model)</span></code></pre></div>
-<pre><code>## # A tibble: 1 × 12
-##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
-##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1     0.651         0.644  15.4      89.6 1.49e-12     1  -207.  419.  425.
-## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
-</section>
-
-<section>
-<section id="plots" class="title-slide slide level1">
-<h1>Plots</h1>
-<p><img src="presentation_files/figure-revealjs/plot-iris-1.png" width="80%" /></p>
-</section>
-<section id="plot-and-text" class="slide level2">
-<h2>Plot and text</h2>
-<div class="columns">
-<div class="column">
-<ul>
-<li>Some text</li>
-<li>goes here</li>
-</ul>
-</div><div class="column">
-<p><img src="presentation_files/figure-revealjs/unnamed-chunk-1-1.png" width="100%" /></p>
-</div>
-</div>
-</section>
-<section id="different-widths" class="slide level2">
-<h2>Different widths</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<ul>
-<li>Some text</li>
-<li>goes here</li>
-</ul>
-</div><div class="column" style="width:60%;">
-<p><img src="presentation_files/figure-revealjs/unnamed-chunk-2-1.png" width="100%" /></p>
-</div>
-</div>
-</section></section>
-<section id="tables" class="title-slide slide level1">
-<h1>Tables</h1>
-<p>If you want to generate a table, make sure it is in the HTML format (instead of Markdown or other formats), e.g.,</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:right;">
-Sepal.Length
-</th>
-<th style="text-align:right;">
-Sepal.Width
-</th>
-<th style="text-align:right;">
-Petal.Length
-</th>
-<th style="text-align:right;">
-Petal.Width
-</th>
-<th style="text-align:left;">
-Species
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:right;">
-5.1
-</td>
-<td style="text-align:right;">
-3.5
-</td>
-<td style="text-align:right;">
-1.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.9
-</td>
-<td style="text-align:right;">
-3.0
-</td>
-<td style="text-align:right;">
-1.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.7
-</td>
-<td style="text-align:right;">
-3.2
-</td>
-<td style="text-align:right;">
-1.3
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-4.6
-</td>
-<td style="text-align:right;">
-3.1
-</td>
-<td style="text-align:right;">
-1.5
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5.0
-</td>
-<td style="text-align:right;">
-3.6
-</td>
-<td style="text-align:right;">
-1.4
-</td>
-<td style="text-align:right;">
-0.2
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-<tr>
-<td style="text-align:right;">
-5.4
-</td>
-<td style="text-align:right;">
-3.9
-</td>
-<td style="text-align:right;">
-1.7
-</td>
-<td style="text-align:right;">
-0.4
-</td>
-<td style="text-align:left;">
-setosa
-</td>
-</tr>
-</tbody>
-</table>
-</section>
-
-<section>
-<section id="images" class="title-slide slide level1">
-<h1>Images</h1>
-<p><img src="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" title="Image credit: Photo by Jörg Angeli on Unsplash." alt="Image credit: Photo by Jörg Angeli on Unsplash." width="60%" style="display: block; margin: auto;" /></p>
-<p>Or you can also include a full page image. See next slide.</p>
-</section>
-<section id="section" class="slide level2" data-background-image="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80">
-<h2 data-background-image="https://images.unsplash.com/photo-1535448033526-c0e85c9e6968?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1650&amp;q=80"></h2>
-</section></section>
-<section id="math-expressions" class="title-slide slide level1">
-<h1>Math Expressions</h1>
-<p>You can write LaTeX math expressions inside a pair of dollar signs ($…$), e.g. <span class="math inline">\(\alpha+\beta\)</span>. You can use the display style with double dollar signs:</p>
-<p><span class="math display">\[\bar{X}=\frac{1}{n}\sum_{i=1}^nX_i\]</span></p>
-</section>
-
-<section id="feeling-adventurous" class="title-slide slide level1">
-<h1>Feeling adventurous?</h1>
-<p>You can learn more about the options available at the following pages:</p>
-<ul>
-<li><p><a href="https://github.com/rstudio/revealjs" class="uri">https://github.com/rstudio/revealjs</a></p></li>
-<li><p><a href="https://bookdown.org/yihui/rmarkdown/revealjs.html" class="uri">https://bookdown.org/yihui/rmarkdown/revealjs.html</a></p></li>
-<li><p><a href="http://www.jenniferbradham.org/post/reveal_js_markdown/" class="uri">http://www.jenniferbradham.org/post/reveal_js_markdown/</a></p></li>
-<li><p><a href="https://revealjs.com/" class="uri">https://revealjs.com/</a></p></li>
-</ul>
 </section>
     </div>
   </div>
