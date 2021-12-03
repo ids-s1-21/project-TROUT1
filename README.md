@@ -15,6 +15,14 @@ to the uploader the information was obtained via web scraping. The
 variables we are going to be focusing on in this project are, Region,
 Area and House type.
 
+X- ID of the property. Property.Name- The name of the property. Price-
+The price of the property. House Type- The type of the house. Area in sq
+ft- Aera in square feet of the property. No. of Bedrooms- Number of
+bedrooms. No. of Bathdrooms- Failure data column, please ignore. No. of
+Receptions- Failure data column, please ignore. Location- The name of
+the neighbourhood of the house. City/County- The city or county the
+property located. Postal Code- The postal code of the property
+
 Data Problems/Cleaning: As you can see, a major issue with our dataset
 was that the values of the variables ‘No. of Bedrooms’, ‘No. of
 Bathrooms’ and ‘No. of Receptions’ were the same and so could not be
@@ -25,10 +33,9 @@ London.
 
 We cleaned our dataset in 5 steps. 1. Filtering out all houses that are
 not in London. 2. Removing the variables “No. of bathrooms” and “No. of
-receptions.”<sup>2</sup> 3. Creating variable: “price\_per\_sq\_ft” =
-“Price”/“Area in sq ft” 4. Extracting the District Code from the “Postal
-Code” variable.<sup>3</sup> 5. Assigning each District code to one of
-the 4 large regions.<sup>4</sup>
+receptions.” 3. Creating variable: “price\_per\_sq\_ft” = “Price”/“Area
+in sq ft” 4. Extracting the District Code from the “Postal Code”
+variable. 5. Assigning each District code to one of the 4 large regions.
 
 The Closer, the Better? Before we start our analysis we will expand on
 how we assigned each property to one of 4 regions. We have chosen to
@@ -37,15 +44,16 @@ Different marked colour represents different regions: 1. Red represents
 group “A-Central” 2. Blue represents group “B-Middle” 3. Red represents
 group “C-Outer” 4. Unmarked region represents group “D-Further outer”
 
-Dividing Rule Image: What we expected is that: The closer to the city
-center, the more expensive the land is. That is, we should observe a
-higher price per sq ft. Data & Interpretation Surprisingly, we found
-that the housing price per sq ft is not always decreasing when the
-region we are looking at is further and further from the city center.
-When we encounter the “D-Further Outer” region, the price increases a
-little. This happens to mean, median, and quarter quantiles, which means
-the housing price per sq ft in the “Further Outer” region is generally
-higher than the “Outer” region.
+Dividing Rule Image: What we expected to see is that: The closer to the
+city center, the more expensive the land is. That is, we should observe
+a higher price per sq ft in areas closer to the center.
+
+Data & Interpretation We are curious if there is an outlier region in
+“Further Outer” that has a higher housing price per sq ft than the
+“Outer” region which is skewing our result. So we made a map to see the
+distribution of housing prices. It seems that no such region exists. The
+housing price per sq ft in “Further outer” is higher than “Outer” region
+in general.
 
 Map & Interpretation: We are curious if there is an outlier region in
 “Further Outer” that has a very high housing price per sq ft which is
@@ -53,14 +61,13 @@ skewing our result. So we made a map to see the distribution of housing
 prices. It seems that no such region exists. The housing price per sq ft
 in “Further outer” is higher than “Outer” region in general.
 
-Visualisations/Summary Statistics:
-
-Prices grouped by region and type of housing We thought that maybe the
-difference in mean price between the outer and further outer regions was
-concentrated into one housing type. For example, maybe the outer region
-has a large number of cheaper apartment complexes, pulling its mean
-housing prices down . However it seems that all popular housing types
-are on average more expensive in the further outer region.
+Visualisations/Summary Statistics: Prices grouped by region and type of
+housing We thought that maybe the difference in mean price between the
+outer and further outer regions was concentrated into one housing type.
+For example, maybe the outer region has a large number of cheaper
+apartment complexes, pulling its mean housing prices down . However it
+seems that all popular housing types are on average more expensive in
+the further outer region.
 
 Table showing correlation between Area and Price over all large regions:
 Firstly we did a simple area versus price graph over all regions
@@ -70,12 +77,12 @@ is a strong correlation between area and price of housing. We can tell
 this as the graph has a relatively high adjusted r squared value of
 0.575.
 
-Table showing correlation between Area and Price over the Middle region:
-Then we filtered the data to only 1 large region. The points seem to
-follow a much clear correlation; this is proven from an increase in
-adjusted r squared from 0.575 to 0.730 which shows that there is a much
-stronger correlation between price and area when there is less regional
-variance.
+Ta ble showing correlation between Area and Price over the Middle
+region: Then we filtered the data to only 1 large region. The points
+seem to follow a much clear correlation; this is proven from an increase
+in adjusted r squared from 0.575 to 0.730 which shows that there is a
+much stronger correlation between price and area when there is less
+regional variance.
 
 Conclusion: Generally as you move further from the center of London
 house prices and price per square foot decreases. However our data tells
@@ -110,14 +117,6 @@ Our presentation can be found in “presentation.html”
 Kulkarni, A., 2021. Housing Prices in London. \[online\] Kaggle.com.
 <https://www.kaggle.com/arnavkulkarni/housing-prices-in-london>
 \[Accessed 19 November 2021\].
-
-X- ID of the property. Property.Name- The name of the property. Price-
-The price of the property. House Type- The type of the house. Area in sq
-ft- Aera in square feet of the property. No. of Bedrooms- Number of
-bedrooms. No. of Bathdrooms- Failure data column, please ignore. No. of
-Receptions- Failure data column, please ignore. Location- The name of
-the neighbourhood of the house. City/County- The city or county the
-property located. Postal Code- The postal code of the property
 
 ## References
 
