@@ -1,6 +1,10 @@
-How Various Factors Affect Housing Prices in London
-================
-by TROUT1 (Zhixin & Sam & Josh)
+---
+title: "How Various Factors Affect Housing Prices in London"
+author: "TROUT1 (Zhixin & Sam & Josh)"
+date: "2 Dec. 2021"
+output: github_document
+---
+
 
 ## Summary
 
@@ -64,11 +68,23 @@ The data set gave limited information on specifics of the properties for example
 
 ## Presentation
 
-Our presentation can be found [here](presentation/presentation.html).
+Our presentation can be found in "presentation.html"
 
 ## Data
 
 Kulkarni, A., 2021. Housing Prices in London. [online] Kaggle.com. <https://www.kaggle.com/arnavkulkarni/housing-prices-in-london> [Accessed 19 November 2021].
+
+X- ID of the property.
+Property.Name- The name of the property.
+Price- The price of the property.
+House Type- The type of the house.
+Area in sq ft- Aera in square feet of the property.
+No. of Bedrooms- Number of bedrooms.
+No. of Bathdrooms- Failure data column, please ignore.
+No. of Receptions- Failure data column, please ignore.
+Location- The name of the neighbourhood of the house.
+City/County- The city or county the property located.
+Postal Code- The postal code of the property
 
 ## References
 
