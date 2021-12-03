@@ -75,6 +75,8 @@ Dividing Rule:
 Before we start our analysis we will expand on how we assigned each property to one of 4 regions. 
 We have chosen to divide the District codes into 4 regions shown on the map below
 
+![Dviding rule image](presentation/presentation_files/Support-files/London_Region_divide.png)
+
 Different marked colour represents different regions:
 
 1. Red represents group "A-Central"
